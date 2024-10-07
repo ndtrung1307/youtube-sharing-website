@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { checkTokenExpiry } from "../../common/utils";
 import LoginForm from "../Form/Login";
 import "./Header.css";
 
@@ -10,10 +11,18 @@ export default function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const email = localStorage.getItem("userEmail");
-    setUserEmail(email);
-    setIsAuthenticated(!!token);
+    if (checkTokenExpiry()) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiryTime");
+      localStorage.removeItem("userEmail");
+      setUserEmail("");
+      setIsAuthenticated(false);
+    } else {
+      const token = localStorage.getItem("token");
+      const email = localStorage.getItem("userEmail");
+      setUserEmail(email);
+      setIsAuthenticated(!!token);
+    }
   }, []);
 
   const handleLogout = () => {
@@ -38,7 +47,7 @@ export default function Header() {
         <div className="header-right">
           <p>Welcome {userEmail}</p>
           <button
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/share")}
             className="button action-button"
           >
             Share a movie

@@ -15,11 +15,11 @@ export async function registerUser({ email, password }) {
 
   const resData = await response.json();
 
-  if (!response.created) {
+  if (!response.ok) {
     throw new Error(resData.message || "Failed to register user");
   }
 
-  return resData;
+  return { status: response.status, data: resData };
 }
 export const useRegisterUser = () => useFetch(registerUser, []);
 
@@ -38,11 +38,14 @@ export async function loginUser({ email, password }) {
 
   const resData = await response.json();
 
-  console.log("LOGIN", response);
-
   if (!response.ok) {
     throw new Error(resData.message || "Failed to login user");
   }
+
+  const tokenExpiryTime = new Date().getTime() + 59 * 60 * 1000;
+
+  localStorage.setItem("token", resData.access_token);
+  localStorage.setItem("tokenExpiryTime", tokenExpiryTime);
 
   return { status: response.status, data: resData };
 }

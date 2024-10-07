@@ -10,12 +10,11 @@ function HomePage() {
     isFetching: isListVideoFetching,
     error,
     fetchedData: videos,
-    setFetchedData: setVideos,
   } = useFetchVideos();
 
   return (
     <div className="homepage">
-      <Header></Header>
+      <Header />
       {error && <Error title="An error occurred!" message={error.message} />}
       {!error && (
         <ListVideos videos={videos} isFetching={isListVideoFetching} />

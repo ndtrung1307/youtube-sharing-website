@@ -53,15 +53,11 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
       if (loginResponse.status !== 201) {
         alert("Invalid email or password. Please try again.");
       }
-      console.log("CHEcl", loginResponse);
-      localStorage.setItem("token", loginResponse.data.access_token);
       localStorage.setItem("userEmail", email);
       setEmail(email);
       setIsAuthenticated(true);
       navigate("/");
     } catch (error) {
-      console.log("ERROR", error);
-
       setIsSubmitting(false);
       if (error.message.includes("email")) {
         setEmailError("Email is invalid.");

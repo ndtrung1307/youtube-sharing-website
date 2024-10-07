@@ -24,14 +24,11 @@ function VideoItem({ video }) {
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
   const sharedTime = formatTimeDifference(video.createdAt);
 
-  const localTime = new Date(video.createdAt).toLocaleString();
-  console.log("video.createdAt (local time): ", localTime);
-
   return (
     <div key={video.id} className="video-player">
       <iframe
-        width="560"
-        height="315"
+        width="50%"
+        height="350"
         src={embedUrl}
         title={video.title}
         style={{ border: "none" }}

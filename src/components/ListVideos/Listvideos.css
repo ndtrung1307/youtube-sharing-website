@@ -8,9 +8,10 @@
 
 .video-player {
   margin: 20px 0;
-  width: 60%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1400px;
   display: flex;
+  white-space: between;
 }
 
 .video-player {
@@ -22,8 +23,8 @@
 .video-player .video-details {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  width: 40%;
+  margin-left: 50px;
+  width: 50%;
   text-align: left;
 }
 

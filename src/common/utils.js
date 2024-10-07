@@ -22,3 +22,29 @@ export function formatTimeDifference(sharedAt) {
     return `${diffInMinutes} minutes ago`;
   }
 }
+
+export function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+export function isStrongPassword(password) {
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return passwordRegex.test(password);
+}
+
+export function isValidYoutubeUrl(url) {
+  const youtubeUrlRegex =
+    /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|embed\/|v\/|.+\?v=)?([^&=%\?]{11})/;
+  return youtubeUrlRegex.test(url);
+}
+
+export function checkTokenExpiry() {
+  const tokenExpiryTime = localStorage.getItem("tokenExpiryTime");
+  if (!tokenExpiryTime) {
+    return true;
+  }
+  const currentTime = new Date().getTime();
+  return currentTime > tokenExpiryTime;
+}
