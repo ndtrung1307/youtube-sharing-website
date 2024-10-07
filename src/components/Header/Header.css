@@ -1,0 +1,116 @@
+.homepage-header {
+  background-color: #282c34;
+  padding: 20px 100px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homepage-header img {
+  height: 50px;
+}
+
+#msform {
+  display: flex;
+  gap: 20px;
+  height: 40px;
+}
+
+#msform input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+  font-size: 13px;
+  vertical-align: center;
+}
+
+#msform .action-button {
+  width: 100px;
+  background: #27ae60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 20px;
+  cursor: pointer;
+  /* padding: 10px; */
+  /* margin: 10px 5px; */
+  text-decoration: none;
+  font-size: 14px;
+}
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+  font-size: 20px;
+}
+
+.header-right .action-button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  height: 45px;
+  font-style: bold;
+}
+
+.header-right .action-button:hover {
+  background-color: #176839;
+}
+
+.header-right .yellow-button {
+  background-color: #ffd332;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  height: 45px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: bold;
+}
+
+.header-right .yellow-button:hover {
+  background-color: #c6a322;
+}
+
+@media (max-width: 1300px) {
+  .homepage-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #msform {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #msform input,
+  #msform .action-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
