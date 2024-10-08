@@ -93,3 +93,19 @@
 #register-form .action-button-previous:focus {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #c5c5f1;
 }
+
+@media (max-width: 390px) {
+  #register-form {
+    text-align: center;
+    position: relative;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 90vh;
+    max-width: 380px;
+    background: #fff;
+    height: fit-content;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}

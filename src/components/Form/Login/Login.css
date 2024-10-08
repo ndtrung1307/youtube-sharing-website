@@ -53,12 +53,16 @@
 
 #msform .action-button {
   padding: 10px 20px;
-  width: 25%;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+#msform .button-group {
+  display: flex;
+  gap: 10px;
 }
 
 @media (max-width: 1300px) {
@@ -72,5 +76,34 @@
   #msform .action-button {
     width: 100%;
     max-width: 300px;
+    margin-bottom: 0;
+  }
+
+  #msform .button-group {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  #msform .input-group {
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #msform input {
+    margin-bottom: 10px;
+  }
+
+  #msform .error-message {
+    margin-bottom: 0px;
+  }
+
+  #msform .button-group {
+    display: flex;
+    gap: 10px;
   }
 }

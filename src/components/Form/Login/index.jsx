@@ -89,16 +89,18 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
           <span className="error-message">{passwordError}</span>
         )}
       </div>
-      <button className="action-button" disabled={isSubmitting}>
-        {isSubmitting ? "Logging in..." : "Login"}
-      </button>
-      <button
-        className="action-button"
-        type="button"
-        onClick={handleRegisterClicked}
-      >
-        Register
-      </button>
+      <div className="button-group">
+        <button className="action-button" disabled={isSubmitting}>
+          {isSubmitting ? "Logging in..." : "Login"}
+        </button>
+        <button
+          className="action-button"
+          type="button"
+          onClick={handleRegisterClicked}
+        >
+          Register
+        </button>
+      </div>
     </form>
   );
 }
