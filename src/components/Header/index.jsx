@@ -32,31 +32,42 @@ export default function Header() {
     navigate("/");
   };
 
+  const handleLogoClicked = () => {
+    navigate("/");
+  };
+
   return (
-    <header className="homepage-header">
-      <div className="header-left">
-        <img src="logo.png" alt="website logo" className="logo" />
-      </div>
-      {!isAuthenticated && (
-        <LoginForm
-          setIsAuthenticated={setIsAuthenticated}
-          setEmail={setUserEmail}
-        />
-      )}
-      {isAuthenticated && (
-        <div className="header-right">
-          <p>Welcome {userEmail}</p>
-          <button
-            onClick={() => navigate("/share")}
-            className="button action-button"
-          >
-            Share a movie
-          </button>
-          <button onClick={handleLogout} className="button yellow-button">
-            Logout
-          </button>
+    <>
+      <div className="homepage-header">
+        <div className="header-left">
+          <img
+            src="logo.png"
+            alt="website logo"
+            className="logo"
+            onClick={handleLogoClicked}
+          />
         </div>
-      )}
-    </header>
+        {!isAuthenticated && (
+          <LoginForm
+            setIsAuthenticated={setIsAuthenticated}
+            setEmail={setUserEmail}
+          />
+        )}
+        {isAuthenticated && (
+          <div className="header-right">
+            <p>Welcome {userEmail}</p>
+            <button
+              onClick={() => navigate("/share")}
+              className="button action-button"
+            >
+              Share a movie
+            </button>
+            <button onClick={handleLogout} className="button yellow-button">
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

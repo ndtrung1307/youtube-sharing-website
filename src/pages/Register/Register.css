@@ -36,7 +36,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/*inputs*/
 #register-form input {
   padding: 15px;
   border: 1px solid #ccc;
@@ -61,7 +60,6 @@
   -o-transition: All 0.5s ease-in;
 }
 
-/*buttons*/
 #register-form .action-button {
   width: 100px;
   background: #ee0979;

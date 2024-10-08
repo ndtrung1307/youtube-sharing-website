@@ -10,43 +10,6 @@
   height: 50px;
 }
 
-#msform {
-  display: flex;
-  gap: 20px;
-  height: 40px;
-}
-
-#msform input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: montserrat;
-  color: #2c3e50;
-  font-size: 13px;
-  vertical-align: center;
-}
-
-#msform .action-button {
-  width: 100px;
-  background: #27ae60;
-  font-weight: bold;
-  color: white;
-  border: 0 none;
-  border-radius: 20px;
-  cursor: pointer;
-  /* padding: 10px; */
-  /* margin: 10px 5px; */
-  text-decoration: none;
-  font-size: 14px;
-}
-#msform .action-button:hover,
-#msform .action-button:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
-}
-
 .error-message {
   color: red;
   font-size: 12px;
@@ -99,18 +62,24 @@
 
 @media (max-width: 1300px) {
   .homepage-header {
+    display: block;
+    align-items: center;
+    height: 40vh;
+    max-height: 270px;
+    justify-content: start;
+    float: none;
+  }
+
+  .homepage-header img {
+    width: 70vw;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .header-right {
+    display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  #msform {
-    flex-direction: column;
     gap: 10px;
-  }
-
-  #msform input,
-  #msform .action-button {
-    width: 100%;
-    margin: 5px 0;
   }
 }

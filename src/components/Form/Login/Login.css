@@ -1,0 +1,76 @@
+#msform {
+  display: flex;
+  gap: 20px;
+  height: 40px;
+}
+
+#msform input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2c3e50;
+  font-size: 13px;
+  vertical-align: center;
+}
+
+#msform .action-button {
+  width: 100px;
+  background: #27ae60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+}
+
+#msform .input-group {
+  margin-bottom: 15px;
+  width: 90%;
+}
+
+#msform .input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#msform .input-group input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#msform .action-button {
+  padding: 10px 20px;
+  width: 25%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+  #msform {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  #msform input,
+  #msform .action-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}

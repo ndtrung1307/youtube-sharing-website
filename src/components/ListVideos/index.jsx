@@ -27,11 +27,8 @@ function VideoItem({ video }) {
   return (
     <div key={video.id} className="video-player">
       <iframe
-        width="50%"
-        height="350"
         src={embedUrl}
         title={video.title}
-        style={{ border: "none" }}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
