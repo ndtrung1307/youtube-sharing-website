@@ -13,6 +13,9 @@ RUN yarn install
 # Copy the rest of the application code to the working directory
 COPY . .
 
+ARG REACT_APP_BACKEND_URL
+ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+
 # Build the React app
 RUN yarn build
 
