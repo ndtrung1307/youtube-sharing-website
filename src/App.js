@@ -5,6 +5,8 @@ import {
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { checkTokenExpiry } from "./common/utils.js";
 import Notifications from "./components/Notification/index.jsx";
@@ -30,14 +32,14 @@ function PrivateRoute({ children }) {
 function App() {
   const socket = useSocket();
 
-  const [videos, setVideos] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   const eventListener = (data) => {
     const userEmail = localStorage.getItem("userEmail");
     if (data.sharedBy === userEmail) {
       return;
     }
-    setVideos((prev) => [...prev, data]);
+    setNotifications((prev) => [...prev, data]);
   };
 
   useEffect(() => {
@@ -50,7 +52,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Notifications notifications={videos} setNotifications={setVideos} />
+        <Notifications
+          notifications={notifications}
+          setNotifications={setNotifications}
+        />
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<Register />} />
