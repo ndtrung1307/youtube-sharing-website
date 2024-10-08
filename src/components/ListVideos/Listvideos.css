@@ -78,3 +78,18 @@
     font-size: calc(100vw * 0.025);
   }
 }
+
+@media (max-width: 390px) {
+  .video-player {
+    width: 100%;
+    font-size: calc(100vw * 0.03);
+  }
+
+  .video-player iframe {
+    height: calc(100vw * 0.5);
+  }
+
+  .video-details .description {
+    font-size: calc(100vw * 0.035);
+  }
+}

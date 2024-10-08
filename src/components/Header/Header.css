@@ -64,7 +64,7 @@
   .homepage-header {
     display: block;
     align-items: center;
-    height: 40vh;
+    height: calc(20vh + 40px);
     max-height: 270px;
     justify-content: start;
     float: none;
@@ -76,10 +76,58 @@
     height: auto;
   }
 
+  .header-right p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 10px;
+    font-size: calc(10px + 1vw);
+  }
+
   .header-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .homepage-header {
+    display: block;
+    width: 100vw;
+    padding: 20px 0;
+    height: calc(20vh + 30px);
+  }
+
+  .homepage-header img {
+    width: 70vw;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-right p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    font-size: calc(10px + 1vw);
+  }
+
+  .header-right .action-button {
+    width: 30%;
+    font-size: calc(10px + 1vw);
+  }
+
+  .header-right .yellow-button {
+    width: 30%;
+    font-size: calc(10px + 1vw);
   }
 }

@@ -37,7 +37,7 @@ function VideoItem({ video }) {
         <p className="shared-by">Shared by: {video.sharedBy}</p>
         <p className="shared-time">{sharedTime}</p>
         <h3>Description:</h3>
-        <p>
+        <p className="description">
           {isExpanded ? video.description : truncatedDescription}
           {video.description.length > MAX_DESCRIPTION_LENGTH && (
             <span className="read-more" onClick={toggleDescription}>
