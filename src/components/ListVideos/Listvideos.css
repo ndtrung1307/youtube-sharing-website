@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 480px) {
   .video-player {
     width: 100%;
     font-size: calc(100vw * 0.03);

@@ -85,7 +85,7 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 480px) {
   #msform .input-group {
     margin-bottom: 0;
     width: 100%;

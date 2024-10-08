@@ -92,7 +92,7 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 480px) {
   .homepage-header {
     display: block;
     width: 100vw;
