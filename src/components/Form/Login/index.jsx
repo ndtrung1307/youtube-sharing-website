@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 import { loginUser } from "../../../hooks/api/auth";
 import "./Login.css";
 
@@ -39,7 +40,7 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
     return isValid;
   };
 
-  const handleLoginRegister = async (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passRef.current.value;
@@ -50,11 +51,7 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
 
     try {
       setIsSubmitting(true);
-      const loginResponse = await loginUser({ email, password });
-      if (loginResponse.status !== 201) {
-        alert("Invalid email or password. Please try again.");
-      }
-      localStorage.setItem("userEmail", email);
+      await loginUser({ email, password });
       setEmail(email);
       setIsAuthenticated(true);
       navigate("/");
@@ -65,7 +62,12 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
       } else if (error.message.includes("password")) {
         setPasswordError("Password is invalid.");
       } else {
-        alert("Invalid email or password. Please try again.");
+        toast.error("Invalid email or password. Please try again.", {
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+          closeOnClick: true,
+        });
         emailRef.current.value = "";
         passRef.current.value = "";
       }
@@ -73,7 +75,7 @@ export default function LoginForm({ setIsAuthenticated, setEmail }) {
   };
 
   return (
-    <form id="msform" onSubmit={handleLoginRegister}>
+    <form id="msform" onSubmit={handleRegisterSubmit}>
       <div className="input-group">
         <input ref={emailRef} type="text" name="email" placeholder="Email" />
         {emailError && <span className="error-message">{emailError}</span>}

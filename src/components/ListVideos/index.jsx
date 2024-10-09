@@ -60,7 +60,7 @@ export default function ListVideos({ videos, isFetching }) {
   return (
     <div className="video-list">
       {videos.map((video) => (
-        <VideoItem video={video} />
+        <VideoItem key={video.id} video={video} />
       ))}
     </div>
   );

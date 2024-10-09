@@ -33,7 +33,7 @@ export async function shareVideo({ videoUrl }) {
 
   const resData = await response.json();
 
-  if (!response.ok) {
+  if (!response.ok || response.status !== 201) {
     throw new Error("Failed to share video. " + resData.message);
   }
 

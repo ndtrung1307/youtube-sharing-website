@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 import { isValidYoutubeUrl } from "../../common/utils";
 import Header from "../../components/Header";
 import { shareVideo } from "../../hooks/api/video";
@@ -28,13 +29,13 @@ function ShareVideo() {
 
     try {
       setIsSubmitting(true);
-      const response = await shareVideo({ videoUrl });
-      if (response.status !== 201) {
-        alert("Failed to share video. Please try again.");
-        setIsSubmitting(false);
-        return;
-      }
-      alert("Video shared successfully!");
+      await shareVideo({ videoUrl });
+      toast.success("Video shared successfully!", {
+        autoClose: 5000,
+        theme: "light",
+        transition: Bounce,
+        closeOnClick: true,
+      });
       navigate("/");
     } catch (error) {
       setIsSubmitting(false);

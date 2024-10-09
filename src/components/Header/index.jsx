@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { checkTokenExpiry } from "../../common/utils";
+import { checkTokenExpiry, clearUserAuthentication } from "../../common/utils";
 import LoginForm from "../Form/Login";
 import "./Header.css";
 
 export default function Header() {
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState("");
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     if (checkTokenExpiry()) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("tokenExpiryTime");
-      localStorage.removeItem("userEmail");
+      clearUserAuthentication();
       setUserEmail("");
       setIsAuthenticated(false);
     } else {
@@ -26,8 +23,7 @@ export default function Header() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userEmail");
+    clearUserAuthentication();
     setIsAuthenticated(false);
     navigate("/");
   };

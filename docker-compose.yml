@@ -5,8 +5,10 @@ services:
       context: .
       args:
         - REACT_APP_BACKEND_URL=http://localhost:3000
+        - REACT_APP_TOKEN_EXPIRES_IN=3540000
     ports:
       - "3001:80"
     environment:
       - NODE_ENV=development
       - REACT_APP_BACKEND_URL=http://localhost:3000
+      - REACT_APP_TOKEN_EXPIRES_IN=3540000

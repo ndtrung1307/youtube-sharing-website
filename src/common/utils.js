@@ -48,3 +48,9 @@ export function checkTokenExpiry() {
   const currentTime = new Date().getTime();
   return currentTime > tokenExpiryTime;
 }
+
+export function clearUserAuthentication() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("tokenExpiryTime");
+  localStorage.removeItem("userEmail");
+}

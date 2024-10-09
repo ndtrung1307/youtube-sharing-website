@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 import { isStrongPassword, isValidEmail } from "../../common/utils";
 import { registerUser } from "../../hooks/api/auth";
 import "./Register.css";
@@ -38,7 +39,12 @@ function Register() {
       const response = await registerUser({ email, password });
 
       if (response.status !== 201) {
-        alert("Failed to register user. Please try again.");
+        toast.error("Failed to register user. Please try again.", {
+          autoClose: 5000,
+          theme: "light",
+          transition: Bounce,
+          closeOnClick: true,
+        });
         setIsSubmitting(false);
         return;
       }
