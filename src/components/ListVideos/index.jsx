@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LazyLoad from "react-lazyload";
 import {
   extractYoutubeVideoId,
   formatTimeDifference,
@@ -26,12 +27,14 @@ function VideoItem({ video }) {
 
   return (
     <div key={video.id} className="video-player">
-      <iframe
-        src={embedUrl}
-        title={video.title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <LazyLoad className="lazy-load">
+        <iframe
+          src={embedUrl}
+          title={video.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </LazyLoad>
       <div className="video-details">
         <h2 className="video-title">{video.title}</h2>
         <p className="shared-by">Shared by: {video.sharedBy}</p>
