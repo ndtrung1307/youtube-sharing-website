@@ -1,4 +1,3 @@
-// src/hooks/useSocket.js
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { checkTokenExpiry } from "../common/utils";

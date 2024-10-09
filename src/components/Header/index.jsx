@@ -1,13 +1,35 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkTokenExpiry, clearUserAuthentication } from "../../common/utils";
+import { useSocket } from "../../hooks/useSocket";
 import LoginForm from "../Form/Login";
 import "./Header.css";
 
-export default function Header() {
+export default function Header({ setNotifications }) {
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const socket = useSocket();
+
+  const newVideoSharedListener = (data) => {
+    if (!data) {
+      return;
+    }
+
+    const userEmail = localStorage.getItem("userEmail");
+    if (data.sharedBy === userEmail) {
+      return;
+    }
+    setNotifications((prev) => [...prev, data]);
+  };
+
+  useEffect(() => {
+    if (socket && isAuthenticated) {
+      socket.on("newVideo", newVideoSharedListener);
+      return () => socket.off("newVideo", newVideoSharedListener);
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (checkTokenExpiry()) {

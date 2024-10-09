@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Navigate,
   Route,
@@ -26,13 +27,21 @@ function PrivateRoute({ children }) {
 }
 
 function App() {
+  const [notifications, setNotifications] = useState([]);
+
   return (
     <Router>
       <div className="App">
-        <Notifications />
+        <Notifications
+          notifications={notifications}
+          setNotifications={setNotifications}
+        />
         <ToastContainer />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={<HomePage setNotifications={setNotifications} />}
+          />
           <Route path="/register" element={<Register />} />
           <Route
             path="/share"

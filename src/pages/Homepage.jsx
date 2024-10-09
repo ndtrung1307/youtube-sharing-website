@@ -5,7 +5,7 @@ import ListVideos from "../components/ListVideos";
 import { useFetchVideos } from "../hooks/api/video";
 import "./Homepage.css";
 
-function HomePage() {
+function HomePage({ setNotifications }) {
   const {
     isFetching: isListVideoFetching,
     error,
@@ -14,7 +14,7 @@ function HomePage() {
 
   return (
     <div className="homepage">
-      <Header />
+      <Header setNotifications={setNotifications} />
       {error && <Error title="An error occurred!" message={error.message} />}
       {!error && (
         <ListVideos videos={videos} isFetching={isListVideoFetching} />
